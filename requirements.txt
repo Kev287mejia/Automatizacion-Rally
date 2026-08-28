@@ -1,0 +1,17 @@
+# Monitor Rally — Dependencias Fase 1
+# IV Rally Nacional de Innovación — Nicaragua Innova 2026
+#
+# Instalar con:
+#   pip install -r requirements.txt
+
+# HTTP y sesiones autenticadas
+requests>=2.31.0
+
+# Parsing de HTML
+beautifulsoup4>=4.12.0
+
+# Parser HTML rápido y robusto (backend de BeautifulSoup)
+lxml>=5.1.0
+
+# Variables de entorno desde .env
+python-dotenv>=1.0.0

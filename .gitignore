@@ -1,0 +1,65 @@
+# ============================================================
+# .gitignore — Monitor Rally Nicaragua Innova 2026
+# ============================================================
+
+# --- Credenciales (NUNCA al repositorio) ---
+.env
+*.env
+.env.*
+!.env.example
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+
+# --- Entorno virtual ---
+venv/
+.venv/
+env/
+ENV/
+.virtualenv/
+
+# --- Snapshot de datos ---
+# Si en el futuro el snapshot contiene información sensible
+# (nombres, correos, datos personales), descomenta la siguiente línea:
+# data/snapshot.json
+# Por ahora se incluye porque es solo estructura con nulls.
+
+# --- IDEs y editores ---
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# --- Logs ---
+*.log
+logs/
+
+# --- pytest y cobertura ---
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# --- mypy ---
+.mypy_cache/

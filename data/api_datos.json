@@ -1,0 +1,36 @@
+{
+  "ok": true,
+  "filtros": {
+    "edicion": {
+      "id": "4f13f9a9-8bfc-44a3-99ac-a578e9908c9b",
+      "nombre": "IV Edición del Rally Nacional de Innovación - Nicaragua Innova 2026"
+    },
+    "institucion": null,
+    "sede": null
+  },
+  "indicadores": {
+    "inscritos": 0,
+    "participantes": 0,
+    "mentores": 0,
+    "coordinadores_sede": 0,
+    "vicecoordinadores_sede": 0,
+    "jurados": 0,
+    "jurados_nacionales": 0,
+    "organizadores_nacionales": 0,
+    "equipos": 0,
+    "equipos_conformados": 0,
+    "equipos_abiertos": 0,
+    "porcentaje_conformacion": 0
+  },
+  "graficos": {
+    "sexos": [],
+    "etnias": [],
+    "retos": [],
+    "categorias": []
+  },
+  "tablas": {
+    "sedes": [],
+    "departamentos": [],
+    "municipios": []
+  }
+}

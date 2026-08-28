@@ -1,0 +1,2753 @@
+<body class="panel-background">
+<div class="modal-loading-overlay" id="overlayProcesando">
+<div class="text-center">
+<div class="spinner-border text-primary" role="status"></div>
+<div class="mt-3 fw-semibold text-primary">Procesando solicitud...</div>
+</div>
+</div>
+<nav class="navbar navbar-dark px-3 shadow-sm fixed-top app-topbar">
+<button aria-controls="offcanvasSidebar" aria-label="Abrir menú" class="btn btn-sidebar-toggle d-lg-none" data-bs-target="#offcanvasSidebar" data-bs-toggle="offcanvas" type="button">
+<i class="fa-solid fa-bars"></i>
+</button>
+<button aria-label="Colapsar menú" class="btn btn-sidebar-toggle d-none d-lg-inline-flex me-2" id="btnSidebarToggle" type="button">
+<i class="fa-solid fa-bars"></i>
+</button>
+<a class="navbar-brand fw-bold btn-proceso-largo" href="/portal/">
+    Rally
+  </a>
+<span class="text-white small d-none d-md-inline">
+    
+      Competencia
+    
+  </span>
+<div class="ms-auto d-flex align-items-center gap-3">
+<span class="text-white small d-none d-sm-inline">
+<i class="fa-solid fa-user-circle me-1"></i>
+      6071508960002W
+    </span>
+<a class="btn btn-outline-light btn-sm btn-proceso-largo" href="/portal/">
+<i class="fa-solid fa-table-cells-large me-1"></i>
+      Portal
+    </a>
+<form action="/logout/" class="d-inline" method="post">
+<input name="csrfmiddlewaretoken" type="hidden" value="4j5TotL1XorktcJN4dIBHKZTtWHoRai4PnPMarZKiM1J8FgdMCFtxZVDuUXn5Tjf"/>
+<button class="btn btn-danger btn-sm btn-proceso-largo" type="submit">
+<i class="fa-solid fa-right-from-bracket"></i> Salir
+      </button>
+</form>
+</div>
+</nav>
+<aside class="app-sidebar d-none d-lg-flex flex-column border-end" id="appSidebar">
+<div class="app-sidebar-inner">
+<ul class="nav nav-pills flex-column px-2">
+<li class="nav-item">
+<a class="nav-link d-flex align-items-center btn-proceso-largo" href="/competencia/">
+<i class="fa-solid fa-house me-2"></i>
+<span class="link-text">Inicio</span>
+</a>
+</li>
+<li class="nav-item mt-3">
+<div class="text-uppercase small px-3 sidebar-section-title">
+            Menú del módulo
+          </div>
+</li>
+<li class="nav-item">
+<a class="nav-link d-flex align-items-center btn-proceso-largo" href="/competencia/mi-perfil/">
+<i class="fa-solid fa-address-card me-2"></i>
+<span class="link-text">Mi perfil</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link d-flex align-items-center active btn-proceso-largo" href="/competencia/dashboard/">
+<i class="fa-solid fa-chart-pie me-2"></i>
+<span class="link-text">Dashboard de seguimiento</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link d-flex align-items-center btn-proceso-largo" href="/competencia/participantes/">
+<i class="fa-solid fa-users me-2"></i>
+<span class="link-text">Participantes</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link d-flex align-items-center btn-proceso-largo" href="/competencia/equipos/">
+<i class="fa-solid fa-people-group me-2"></i>
+<span class="link-text">Equipos</span>
+</a>
+</li>
+</ul>
+</div>
+</aside>
+<div class="offcanvas offcanvas-start app-offcanvas" id="offcanvasSidebar" tabindex="-1">
+<div class="offcanvas-header">
+<h6 class="offcanvas-title mb-0">
+      
+        Competencia
+      
+    </h6>
+<button aria-label="Cerrar" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" type="button"></button>
+</div>
+<div class="offcanvas-body p-0">
+<ul class="nav nav-pills flex-column px-2">
+<li class="nav-item">
+<a class="nav-link d-flex align-items-center btn-proceso-largo" href="/competencia/">
+<i class="fa-solid fa-house me-2"></i>
+          Inicio
+        </a>
+</li>
+<li class="nav-item mt-3">
+<div class="text-uppercase small px-3 sidebar-section-title">
+            Menú del módulo
+          </div>
+</li>
+<li class="nav-item">
+<a class="nav-link d-flex align-items-center btn-proceso-largo" href="/competencia/mi-perfil/">
+<i class="fa-solid fa-address-card me-2"></i>
+                  
+                  Mi perfil
+                </a>
+</li>
+<li class="nav-item">
+<a class="nav-link d-flex align-items-center active btn-proceso-largo" href="/competencia/dashboard/">
+<i class="fa-solid fa-chart-pie me-2"></i>
+                  
+                  Dashboard de seguimiento
+                </a>
+</li>
+<li class="nav-item">
+<a class="nav-link d-flex align-items-center btn-proceso-largo" href="/competencia/participantes/">
+<i class="fa-solid fa-users me-2"></i>
+                  
+                  Participantes
+                </a>
+</li>
+<li class="nav-item">
+<a class="nav-link d-flex align-items-center btn-proceso-largo" href="/competencia/equipos/">
+<i class="fa-solid fa-people-group me-2"></i>
+                  
+                  Equipos
+                </a>
+</li>
+<li class="nav-item mt-3">
+<div class="text-uppercase small px-3 sidebar-section-title">
+          Navegación
+        </div>
+</li>
+<li class="nav-item">
+<a class="nav-link d-flex align-items-center btn-proceso-largo" href="/portal/">
+<i class="fa-solid fa-table-cells-large me-2"></i>
+          Volver al portal
+        </a>
+</li>
+<li class="nav-item">
+<form action="/logout/" class="px-2 mt-2" method="post">
+<input name="csrfmiddlewaretoken" type="hidden" value="4j5TotL1XorktcJN4dIBHKZTtWHoRai4PnPMarZKiM1J8FgdMCFtxZVDuUXn5Tjf"/>
+<button class="btn btn-danger w-100 btn-sm btn-proceso-largo" type="submit">
+<i class="fa-solid fa-right-from-bracket me-1"></i>
+            Cerrar sesión
+          </button>
+</form>
+</li>
+</ul>
+</div>
+</div>
+<main class="app-main">
+<div class="container-fluid py-4">
+<div class="mb-4">
+<h1 class="h4 fw-bold mb-1 text-white">
+</h1>
+<div>
+<h2 class="fw-bold mb-1 text-white">
+<i class="fa-solid fa-chart-pie me-2"></i>
+    
+
+    
+      Dashboard de seguimiento
+    
+
+  </h2>
+<div class="text-white">
+
+    
+      Consulta estadísticas generales de inscripción, participación y conformación de equipos según los alcances autorizados por institución y sede.
+    
+
+  </div>
+</div>
+</div>
+<style>
+  .dashboard-seguimiento {
+    padding-bottom: 2rem;
+  }
+
+  .dashboard-filtros,
+  .dashboard-card,
+  .dashboard-grafico,
+  .dashboard-resumen,
+  .dashboard-tabla {
+    border: 0;
+    border-radius: 1rem;
+    box-shadow:
+      0 0.35rem 1rem
+      rgba(33, 37, 41, 0.07);
+  }
+
+  .dashboard-filtros,
+  .dashboard-grafico,
+  .dashboard-resumen,
+  .dashboard-tabla {
+    overflow: hidden;
+  }
+
+  .dashboard-filtros-header,
+  .dashboard-grafico-header,
+  .dashboard-tabla-header {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid
+      var(--bs-border-color-translucent);
+    background: var(--bs-body-bg);
+  }
+
+  .dashboard-filtros-icono,
+  .dashboard-grafico-icono,
+  .dashboard-tabla-icono {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.8rem;
+    color: var(--bs-primary);
+    background:
+      rgba(13, 110, 253, 0.11);
+  }
+
+  .dashboard-card {
+    height: 100%;
+    overflow: hidden;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .dashboard-card:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 0.75rem 1.5rem
+      rgba(33, 37, 41, 0.1);
+  }
+
+  .dashboard-card-borde {
+    height: 5px;
+  }
+
+  .dashboard-card-borde-inscritos {
+    background: var(--bs-primary);
+  }
+
+  .dashboard-card-borde-participantes {
+    background: var(--bs-info);
+  }
+
+  .dashboard-card-borde-mentores {
+    background: var(--bs-warning);
+  }
+
+  .dashboard-card-borde-coordinadores {
+    background: #fd7e14;
+  }
+
+  .dashboard-card-borde-jurados {
+    background: #6f42c1;
+  }
+
+  .dashboard-card-borde-vicecoordinadores {
+    background: var(--bs-secondary);
+  }
+
+  .dashboard-card-icono {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.9rem;
+    font-size: 1.15rem;
+  }
+
+  .dashboard-card-icono-inscritos {
+    color: var(--bs-primary);
+    background:
+      rgba(13, 110, 253, 0.12);
+  }
+
+  .dashboard-card-icono-participantes {
+    color: #087990;
+    background:
+      rgba(13, 202, 240, 0.14);
+  }
+
+  .dashboard-card-icono-mentores {
+    color: #997300;
+    background:
+      rgba(255, 193, 7, 0.16);
+  }
+
+  .dashboard-card-icono-coordinadores {
+    color: #c75d00;
+    background:
+      rgba(253, 126, 20, 0.14);
+  }
+
+  .dashboard-card-icono-jurados {
+    color: #6f42c1;
+    background:
+      rgba(111, 66, 193, 0.13);
+  }
+
+  .dashboard-card-icono-vicecoordinadores {
+    color: var(--bs-secondary);
+    background:
+      rgba(108, 117, 125, 0.13);
+  }
+
+  .dashboard-card-valor {
+    font-size: 1.8rem;
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  .dashboard-resumen-item {
+    height: 100%;
+    padding: 1rem;
+    border: 1px solid
+      var(--bs-border-color-translucent);
+    border-radius: 0.9rem;
+    background: var(--bs-body-bg);
+  }
+
+  .dashboard-resumen-icono {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+  }
+
+  .dashboard-resumen-icono-abiertos {
+    color: #997300;
+    background:
+      rgba(255, 193, 7, 0.15);
+  }
+
+  .dashboard-resumen-icono-conformados {
+    color: var(--bs-success);
+    background:
+      rgba(25, 135, 84, 0.13);
+  }
+
+  .dashboard-resumen-icono-porcentaje {
+    color: var(--bs-primary);
+    background:
+      rgba(13, 110, 253, 0.12);
+  }
+
+  .dashboard-resumen-valor {
+    font-size: 1.35rem;
+    font-weight: 700;
+  }
+
+  .dashboard-grafico {
+    height: 100%;
+  }
+
+  .dashboard-grafico-body {
+    position: relative;
+    min-height: 350px;
+    padding: 1.25rem;
+  }
+
+  .dashboard-grafico-horizontal {
+    min-height: 420px;
+  }
+
+  .dashboard-canvas-contenedor {
+    position: relative;
+    width: 100%;
+    height: 310px;
+  }
+
+  .dashboard-canvas-contenedor-alto {
+    height: 380px;
+  }
+
+  .dashboard-sin-datos {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    min-height: 260px;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .dashboard-sin-datos.visible {
+    display: flex;
+  }
+
+  .dashboard-sin-datos-icono {
+    width: 70px;
+    height: 70px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--bs-secondary);
+    background: var(--bs-tertiary-bg);
+    font-size: 1.5rem;
+  }
+
+  .dashboard-filtro-fijo {
+    min-height: 38px;
+    padding: 0.45rem 0.75rem;
+    border: 1px solid
+      var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    background: var(--bs-tertiary-bg);
+  }
+
+  .dashboard-actualizacion {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--bs-secondary-color);
+    font-size: 0.8rem;
+  }
+
+  .dashboard-actualizacion.actualizando {
+    color: var(--bs-primary);
+  }
+
+  .dashboard-tabla {
+    height: 100%;
+  }
+
+  .dashboard-tabla-buscador {
+    width: 230px;
+  }
+
+  .dashboard-tabla-buscador .input-group-text {
+    background: var(--bs-body-bg);
+  }
+
+  .dashboard-tabla .table {
+    margin-bottom: 0;
+  }
+
+  .dashboard-tabla .table thead th {
+    padding: 0.8rem 1rem;
+    border-bottom-width: 1px;
+    color: var(--bs-secondary-color);
+    background: var(--bs-tertiary-bg);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.03rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .dashboard-tabla .table tbody td {
+    padding: 0.85rem 1rem;
+    vertical-align: middle;
+  }
+
+  .dashboard-tabla-posicion {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--bs-primary);
+    background:
+      rgba(13, 110, 253, 0.11);
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+
+  .dashboard-tabla-cantidad {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    padding: 0.3rem 0.65rem;
+    border-radius: 50rem;
+    color: var(--bs-primary);
+    background:
+      rgba(13, 110, 253, 0.11);
+    font-weight: 700;
+  }
+
+  .dashboard-tabla-footer {
+    padding: 0.85rem 1.25rem;
+    border-top: 1px solid
+      var(--bs-border-color-translucent);
+    background: var(--bs-body-bg);
+  }
+
+  .dashboard-paginacion {
+    margin-bottom: 0;
+  }
+
+  .dashboard-paginacion .page-link {
+    min-width: 34px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .dashboard-tabla-vacia {
+    padding: 3rem 1rem !important;
+    text-align: center;
+  }
+
+  .dashboard-cargando {
+    position: fixed;
+    inset: 0;
+    z-index: 1090;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background:
+      rgba(15, 23, 42, 0.35);
+    backdrop-filter: blur(2px);
+  }
+
+  .dashboard-cargando.visible {
+    display: flex;
+  }
+
+  .dashboard-cargando-contenido {
+    min-width: 220px;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: var(--bs-body-bg);
+    box-shadow:
+      0 1rem 2rem
+      rgba(0, 0, 0, 0.18);
+    text-align: center;
+  }
+
+  #dashboardAlerta {
+    display: none;
+  }
+
+  #dashboardAlerta.visible {
+    display: block;
+  }
+
+  #dashboardSeguimiento
+  .select2-container--bootstrap-5 {
+    width: 100% !important;
+  }
+
+  #dashboardSeguimiento
+  .select2-container--bootstrap-5
+  .select2-selection {
+    min-height: 38px;
+  }
+
+  @media (max-width: 767.98px) {
+    .dashboard-card-valor {
+      font-size: 1.55rem;
+    }
+
+    .dashboard-grafico-body,
+    .dashboard-grafico-horizontal {
+      min-height: 340px;
+      padding: 1rem;
+    }
+
+    .dashboard-canvas-contenedor,
+    .dashboard-canvas-contenedor-alto {
+      height: 300px;
+    }
+
+    .dashboard-tabla-buscador {
+      width: 100%;
+    }
+  }
+</style>
+<div class="container-fluid dashboard-seguimiento" data-url-datos="/competencia/dashboard/datos/" data-url-sedes="/competencia/dashboard/sedes/" id="dashboardSeguimiento">
+<div class="alert alert-danger mb-4" id="dashboardAlerta" role="alert">
+<div class="d-flex align-items-start gap-2">
+<i class="fa-solid fa-circle-exclamation mt-1"></i>
+<div>
+<div class="fw-semibold">
+          No fue posible cargar el dashboard
+        </div>
+<div class="small" id="dashboardAlertaMensaje">
+</div>
+</div>
+</div>
+</div>
+<!-- FILTROS -->
+<div class="card dashboard-filtros mb-4">
+<div class="dashboard-filtros-header">
+<div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+<div class="d-flex align-items-center gap-3">
+<div class="dashboard-filtros-icono">
+<i class="fa-solid fa-filter"></i>
+</div>
+<div>
+<h3 class="h5 fw-bold mb-1">
+              Filtros de seguimiento
+            </h3>
+<div class="small text-body-secondary">
+              Los datos se actualizan automáticamente
+              al cambiar una opción.
+            </div>
+</div>
+</div>
+<div class="dashboard-actualizacion" id="estadoActualizacionDashboard">
+<i class="fa-solid fa-arrows-rotate"></i>
+<span>
+            Actualización dinámica
+          </span>
+</div>
+</div>
+</div>
+<div class="card-body p-4">
+<form autocomplete="off" id="formFiltrosDashboard">
+<div class="row g-3">
+<div class="col-12 col-lg-4">
+<label class="form-label fw-semibold" for="filtroEdicion">
+              Edición
+            </label>
+<select class="form-select select2-dashboard" id="filtroEdicion" name="edicion">
+<option selected="" value="4f13f9a9-8bfc-44a3-99ac-a578e9908c9b">
+
+                  IV Edición del Rally Nacional de Innovación - Nicaragua Innova 2026
+
+                </option>
+</select>
+</div>
+<div class="col-12 col-md-6 col-lg-4">
+<label class="form-label fw-semibold" for="filtroInstitucion">
+              Institución
+            </label>
+<select class="form-select select2-dashboard" id="filtroInstitucion" name="institucion">
+<option value="">
+                  Todas las instituciones autorizadas
+                </option>
+</select>
+</div>
+<div class="col-12 col-md-6 col-lg-4">
+<label class="form-label fw-semibold" for="filtroSede">
+              Sede
+            </label>
+<select class="form-select select2-dashboard" data-valor-inicial="" id="filtroSede" name="sede">
+<option value="">
+                  Todas las sedes autorizadas
+                </option>
+</select>
+</div>
+</div>
+</form>
+</div>
+</div>
+<!-- INDICADORES 1 -->
+<div class="row g-3 mb-4">
+<div class="col-6 col-md-4 col-xl-3">
+<div class="card dashboard-card">
+<div class="dashboard-card-borde dashboard-card-borde-inscritos">
+</div>
+<div class="card-body">
+<div class="d-flex align-items-center gap-3">
+<div class="dashboard-card-icono dashboard-card-icono-inscritos">
+<i class="fa-solid fa-address-card"></i>
+</div>
+<div>
+<div class="small text-body-secondary">
+                Inscritos
+              </div>
+<div class="dashboard-card-valor" id="indicadorInscritos">
+                0
+              </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-6 col-md-4 col-xl-3">
+<div class="card dashboard-card">
+<div class="dashboard-card-borde dashboard-card-borde-participantes">
+</div>
+<div class="card-body">
+<div class="d-flex align-items-center gap-3">
+<div class="dashboard-card-icono dashboard-card-icono-participantes">
+<i class="fa-solid fa-user-group"></i>
+</div>
+<div>
+<div class="small text-body-secondary">
+                Participantes
+              </div>
+<div class="dashboard-card-valor" id="indicadorParticipantes">
+                0
+              </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-6 col-md-4 col-xl-3">
+<div class="card dashboard-card">
+<div class="dashboard-card-borde dashboard-card-borde-coordinadores">
+</div>
+<div class="card-body">
+<div class="d-flex align-items-center gap-3">
+<div class="dashboard-card-icono dashboard-card-icono-coordinadores">
+<i class="fa-solid fa-user-tie"></i>
+</div>
+<div>
+<div class="small text-body-secondary">
+                Coordinadores
+              </div>
+<div class="dashboard-card-valor" id="indicadorCoordinadoresSede">
+                0
+              </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-6 col-md-4 col-xl-3">
+<div class="card dashboard-card">
+<div class="dashboard-card-borde dashboard-card-borde-vicecoordinadores">
+</div>
+<div class="card-body">
+<div class="d-flex align-items-center gap-3">
+<div class="dashboard-card-icono dashboard-card-icono-vicecoordinadores">
+<i class="fa-solid fa-user-shield"></i>
+</div>
+<div>
+<div class="small text-body-secondary">
+                Vicecoordinadores
+              </div>
+<div class="dashboard-card-valor" id="indicadorVicecoordinadoresSede">
+                0
+              </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- INDICADORES 2 -->
+<div class="row g-3 mb-4">
+<div class="col-6 col-md-4 col-xl-3">
+<div class="card dashboard-card">
+<div class="dashboard-card-borde dashboard-card-borde-mentores">
+</div>
+<div class="card-body">
+<div class="d-flex align-items-center gap-3">
+<div class="dashboard-card-icono dashboard-card-icono-mentores">
+<i class="fa-solid fa-chalkboard-user"></i>
+</div>
+<div>
+<div class="small text-body-secondary">
+                Mentores
+              </div>
+<div class="dashboard-card-valor" id="indicadorMentores">
+                0
+              </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-6 col-md-4 col-xl-3">
+<div class="card dashboard-card">
+<div class="dashboard-card-borde dashboard-card-borde-jurados">
+</div>
+<div class="card-body">
+<div class="d-flex align-items-center gap-3">
+<div class="dashboard-card-icono dashboard-card-icono-jurados">
+<i class="fa-solid fa-gavel"></i>
+</div>
+<div>
+<div class="small text-body-secondary">
+                Jurados
+              </div>
+<div class="dashboard-card-valor" id="indicadorJurados">
+                0
+              </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-6 col-md-4 col-xl-3">
+<div class="card dashboard-card">
+<div class="dashboard-card-borde dashboard-card-borde-coordinadores">
+</div>
+<div class="card-body">
+<div class="d-flex align-items-center gap-3">
+<div class="dashboard-card-icono dashboard-card-icono-coordinadores">
+<i class="fa-solid fa-user-tie"></i>
+</div>
+<div>
+<div class="small text-body-secondary">
+                Organizadores Nacionales
+              </div>
+<div class="dashboard-card-valor" id="indicadorOrganizadoresNacionales">
+                0
+              </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-6 col-md-4 col-xl-3">
+<div class="card dashboard-card">
+<div class="dashboard-card-borde dashboard-card-borde-jurados">
+</div>
+<div class="card-body">
+<div class="d-flex align-items-center gap-3">
+<div class="dashboard-card-icono dashboard-card-icono-jurados">
+<i class="fa-solid fa-user-shield"></i>
+</div>
+<div>
+<div class="small text-body-secondary">
+                Jurados Nacionales
+              </div>
+<div class="dashboard-card-valor" id="indicadorJuradosNacionales">
+                0
+              </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RESUMEN EQUIPOS -->
+<div class="card dashboard-resumen mb-4">
+<div class="card-body p-4">
+<div class="row g-3">
+<div class="col-12 col-md-4">
+<div class="dashboard-resumen-item">
+<div class="d-flex align-items-center gap-3">
+<div class="dashboard-resumen-icono dashboard-resumen-icono-abiertos">
+<i class="fa-solid fa-lock-open"></i>
+</div>
+<div>
+<div class="small text-body-secondary">
+                  Equipos abiertos
+                </div>
+<div class="dashboard-resumen-valor" id="indicadorEquiposAbiertos">
+                  0
+                </div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-4">
+<div class="dashboard-resumen-item">
+<div class="d-flex align-items-center gap-3">
+<div class="dashboard-resumen-icono dashboard-resumen-icono-conformados">
+<i class="fa-solid fa-lock"></i>
+</div>
+<div>
+<div class="small text-body-secondary">
+                  Equipos conformados
+                </div>
+<div class="dashboard-resumen-valor" id="resumenEquiposConformados">
+                  0
+                </div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-4">
+<div class="dashboard-resumen-item">
+<div class="d-flex align-items-center gap-3">
+<div class="dashboard-resumen-icono dashboard-resumen-icono-porcentaje">
+<i class="fa-solid fa-percent"></i>
+</div>
+<div>
+<div class="small text-body-secondary">
+                  Porcentaje de conformación
+                </div>
+<div class="dashboard-resumen-valor" id="indicadorPorcentajeConformacion">
+                  0 %
+                </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- TABLA DE SEDES -->
+<div class="card dashboard-tabla mb-4">
+<div class="dashboard-tabla-header d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+<div class="d-flex align-items-center gap-3">
+<div class="dashboard-tabla-icono">
+<i class="fa-solid fa-location-dot"></i>
+</div>
+<div>
+<h3 class="h5 fw-bold mb-1">
+            Inscritos por sede
+          </h3>
+<div class="small text-body-secondary">
+            Distribución de personas inscritas por institución y sede
+          </div>
+</div>
+</div>
+<div class="input-group input-group-sm dashboard-tabla-buscador">
+<span class="input-group-text">
+<i class="fa-solid fa-magnifying-glass"></i>
+</span>
+<input class="form-control" id="buscarSedes" placeholder="Buscar sede" type="search"/>
+</div>
+</div>
+<div class="table-responsive">
+<table class="table table-hover align-middle">
+<thead>
+<tr>
+<th style="width: 70px;">
+              #
+            </th>
+<th>
+              Institución
+            </th>
+<th>
+              Sede
+            </th>
+<th class="text-end" style="width: 120px;">
+              Inscritos
+            </th>
+</tr>
+</thead>
+<tbody id="tablaSedesCuerpo">
+</tbody>
+</table>
+</div>
+<div class="dashboard-tabla-footer">
+<div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-2">
+<div class="small text-body-secondary" id="infoSedes">
+          Mostrando 0 registros
+        </div>
+<nav aria-label="Paginación de sedes">
+<ul class="pagination pagination-sm dashboard-paginacion" id="paginacionSedes">
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<!-- SEXO Y ETNIA -->
+<div class="row g-4 mb-4">
+<div class="col-xl-6">
+<div class="card dashboard-grafico">
+<div class="dashboard-grafico-header">
+<div class="d-flex align-items-center gap-3">
+<div class="dashboard-grafico-icono">
+<i class="fa-solid fa-venus-mars"></i>
+</div>
+<div>
+<h3 class="h5 fw-bold mb-1">
+                Inscritos por sexo
+              </h3>
+<div class="small text-body-secondary">
+                Distribución de las personas inscritas por sexo
+              </div>
+</div>
+</div>
+</div>
+<div class="dashboard-grafico-body">
+<div class="dashboard-canvas-contenedor">
+<canvas id="graficoSexos"></canvas>
+</div>
+<div class="dashboard-sin-datos" id="sinDatosSexos">
+<div>
+<div class="dashboard-sin-datos-icono mb-3">
+<i class="fa-solid fa-chart-pie"></i>
+</div>
+<div class="fw-semibold">
+                Sin información disponible
+              </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xl-6">
+<div class="card dashboard-grafico">
+<div class="dashboard-grafico-header">
+<div class="d-flex align-items-center gap-3">
+<div class="dashboard-grafico-icono">
+<i class="fa-solid fa-people-arrows"></i>
+</div>
+<div>
+<h3 class="h5 fw-bold mb-1">
+                Inscritos por etnias
+              </h3>
+<div class="small text-body-secondary">
+                Distribución de las personas inscritas por etnia
+              </div>
+</div>
+</div>
+</div>
+<div class="dashboard-grafico-body">
+<div class="dashboard-canvas-contenedor">
+<canvas id="graficoEtnias"></canvas>
+</div>
+<div class="dashboard-sin-datos" id="sinDatosEtnias">
+<div>
+<div class="dashboard-sin-datos-icono mb-3">
+<i class="fa-solid fa-people-arrows"></i>
+</div>
+<div class="fw-semibold">
+                Sin información disponible
+              </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- DESAFÍOS Y CATEGORÍAS -->
+<div class="row g-4 mb-4">
+<div class="col-xl-6">
+<div class="card dashboard-grafico">
+<div class="dashboard-grafico-header">
+<div class="d-flex align-items-center gap-3">
+<div class="dashboard-grafico-icono">
+<i class="fa-solid fa-lightbulb"></i>
+</div>
+<div>
+<h3 class="h5 fw-bold mb-1">
+                Desafíos más elegidos
+              </h3>
+<div class="small text-body-secondary">
+                Cantidad de equipos agrupados por desafíos
+              </div>
+</div>
+</div>
+</div>
+<div class="dashboard-grafico-body dashboard-grafico-horizontal">
+<div class="dashboard-canvas-contenedor dashboard-canvas-contenedor-alto">
+<canvas id="graficoRetos"></canvas>
+</div>
+<div class="dashboard-sin-datos" id="sinDatosRetos">
+<div>
+<div class="dashboard-sin-datos-icono mb-3">
+<i class="fa-regular fa-lightbulb"></i>
+</div>
+<div class="fw-semibold">
+                Sin desafíos seleccionados
+              </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xl-6">
+<div class="card dashboard-grafico">
+<div class="dashboard-grafico-header">
+<div class="d-flex align-items-center gap-3">
+<div class="dashboard-grafico-icono">
+<i class="fa-solid fa-layer-group"></i>
+</div>
+<div>
+<h3 class="h5 fw-bold mb-1">
+                Categorías más elegidas
+              </h3>
+<div class="small text-body-secondary">
+                Cantidad de equipos agrupados por categoría
+              </div>
+</div>
+</div>
+</div>
+<div class="dashboard-grafico-body dashboard-grafico-horizontal">
+<div class="dashboard-canvas-contenedor dashboard-canvas-contenedor-alto">
+<canvas id="graficoCategorias"></canvas>
+</div>
+<div class="dashboard-sin-datos" id="sinDatosCategorias">
+<div>
+<div class="dashboard-sin-datos-icono mb-3">
+<i class="fa-solid fa-layer-group"></i>
+</div>
+<div class="fw-semibold">
+                Sin categorías seleccionadas
+              </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- TABLAS GEOGRÁFICAS -->
+<div class="row g-4">
+<div class="col-xl-6">
+<div class="card dashboard-tabla">
+<div class="dashboard-tabla-header d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+<div class="d-flex align-items-center gap-3">
+<div class="dashboard-tabla-icono">
+<i class="fa-solid fa-map"></i>
+</div>
+<div>
+<h3 class="h5 fw-bold mb-1">
+                Inscritos por departamento
+              </h3>
+<div class="small text-body-secondary">
+                Distribución territorial de las inscripciones
+              </div>
+</div>
+</div>
+<div class="input-group input-group-sm dashboard-tabla-buscador">
+<span class="input-group-text">
+<i class="fa-solid fa-magnifying-glass"></i>
+</span>
+<input class="form-control" id="buscarDepartamentos" placeholder="Buscar departamento" type="search"/>
+</div>
+</div>
+<div class="table-responsive">
+<table class="table table-hover align-middle">
+<thead>
+<tr>
+<th style="width: 70px;">
+                  #
+                </th>
+<th>
+                  Departamento
+                </th>
+<th class="text-end" style="width: 120px;">
+                  Inscritos
+                </th>
+</tr>
+</thead>
+<tbody id="tablaDepartamentosCuerpo">
+</tbody>
+</table>
+</div>
+<div class="dashboard-tabla-footer">
+<div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-2">
+<div class="small text-body-secondary" id="infoDepartamentos">
+              Mostrando 0 registros
+            </div>
+<nav aria-label="Paginación de departamentos">
+<ul class="pagination pagination-sm dashboard-paginacion" id="paginacionDepartamentos">
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xl-6">
+<div class="card dashboard-tabla">
+<div class="dashboard-tabla-header d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+<div class="d-flex align-items-center gap-3">
+<div class="dashboard-tabla-icono">
+<i class="fa-solid fa-city"></i>
+</div>
+<div>
+<h3 class="h5 fw-bold mb-1">
+                Inscritos por municipio
+              </h3>
+<div class="small text-body-secondary">
+                Municipios con mayor cantidad de inscritos
+              </div>
+</div>
+</div>
+<div class="input-group input-group-sm dashboard-tabla-buscador">
+<span class="input-group-text">
+<i class="fa-solid fa-magnifying-glass"></i>
+</span>
+<input class="form-control" id="buscarMunicipios" placeholder="Buscar municipio" type="search"/>
+</div>
+</div>
+<div class="table-responsive">
+<table class="table table-hover align-middle">
+<thead>
+<tr>
+<th style="width: 70px;">
+                  #
+                </th>
+<th>
+                  Departamento
+                </th>
+<th>
+                  Municipio
+                </th>
+<th class="text-end" style="width: 120px;">
+                  Inscritos
+                </th>
+</tr>
+</thead>
+<tbody id="tablaMunicipiosCuerpo">
+</tbody>
+</table>
+</div>
+<div class="dashboard-tabla-footer">
+<div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-2">
+<div class="small text-body-secondary" id="infoMunicipios">
+              Mostrando 0 registros
+            </div>
+<nav aria-label="Paginación de municipios">
+<ul class="pagination pagination-sm dashboard-paginacion" id="paginacionMunicipios">
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div aria-hidden="true" class="dashboard-cargando" id="dashboardCargando">
+<div class="dashboard-cargando-contenido">
+<div class="spinner-border text-primary mb-3" role="status">
+<span class="visually-hidden">
+          Cargando
+        </span>
+</div>
+<div class="fw-semibold">
+        Consultando estadísticas
+      </div>
+<div class="small text-body-secondary">
+        Espere un momento...
+      </div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script src="/static/vendor/jquery/js/jquery-3.7.1.min.js"></script>
+<script src="/static/vendor/select2/dist/js/select2.min.js"></script>
+<script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/static/vendor/sweetalert2/dist/sweetalert2.all.min.js"></script>
+<script src="/static/vendor/leaflet/leaflet.js"></script>
+<script src="/static/js/rally-global.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const btnSidebarToggle = document.getElementById("btnSidebarToggle");
+    const appSidebar = document.getElementById("appSidebar");
+    const appMain = document.querySelector(".app-main");
+
+    if (!btnSidebarToggle || !appSidebar || !appMain) {
+      return;
+    }
+
+    btnSidebarToggle.addEventListener("click", function () {
+      document.body.classList.toggle("sidebar-collapsed");
+      appSidebar.classList.toggle("sidebar-collapsed");
+      appMain.classList.toggle("sidebar-collapsed");
+    });
+  });
+</script>
+<script src="/static/vendor/chartjs/chart.umd.min.js"></script>
+<script src="/static/vendor/chartjs-plugin-datalabels/chartjs-plugin-datalabels.min.js"></script>
+<script>
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+    "use strict";
+
+    const dashboard = document.getElementById(
+      "dashboardSeguimiento"
+    );
+
+    if (!dashboard) {
+      return;
+    }
+
+    if (
+      typeof Chart !== "undefined"
+      && typeof ChartDataLabels !== "undefined"
+    ) {
+      Chart.register(
+        ChartDataLabels
+      );
+    }
+
+    const formulario = document.getElementById(
+      "formFiltrosDashboard"
+    );
+
+    const filtroEdicion = document.getElementById(
+      "filtroEdicion"
+    );
+
+    const filtroInstitucion = document.getElementById(
+      "filtroInstitucion"
+    );
+
+    const filtroSede = document.getElementById(
+      "filtroSede"
+    );
+
+    const cargando = document.getElementById(
+      "dashboardCargando"
+    );
+
+    const alerta = document.getElementById(
+      "dashboardAlerta"
+    );
+
+    const alertaMensaje = document.getElementById(
+      "dashboardAlertaMensaje"
+    );
+
+    const estadoActualizacion = document.getElementById(
+      "estadoActualizacionDashboard"
+    );
+
+    const urlDatos = dashboard.dataset.urlDatos;
+    const urlSedes = dashboard.dataset.urlSedes;
+
+    const $ = (
+      typeof window.jQuery !== "undefined"
+      ? window.jQuery
+      : null
+    );
+
+    let solicitudDashboard = null;
+    let solicitudSedes = null;
+
+    const graficos = {
+      sexos: null,
+      etnias: null,
+      retos: null,
+      categorias: null
+    };
+
+    const tablas = {
+      sedes: {
+        datos: [],
+        filtrados: [],
+        pagina: 1,
+        porPagina: 10
+      },
+      departamentos: {
+        datos: [],
+        filtrados: [],
+        pagina: 1,
+        porPagina: 10
+      },
+      municipios: {
+        datos: [],
+        filtrados: [],
+        pagina: 1,
+        porPagina: 10
+      }
+    };
+
+
+    function numeroSeguro(valor) {
+      const numero = Number(valor);
+
+      return Number.isFinite(numero)
+        ? numero
+        : 0;
+    }
+
+
+    function escaparHtml(valor) {
+      return String(valor ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+
+    function inicializarSelect2Dashboard() {
+      if (
+        !$ ||
+        typeof $.fn.select2 === "undefined"
+      ) {
+        return;
+      }
+
+      $(".select2-dashboard").each(
+        function () {
+          const selector = $(this);
+
+          if (
+            selector.hasClass(
+              "select2-hidden-accessible"
+            )
+          ) {
+            selector.select2("destroy");
+          }
+
+          selector.select2({
+            theme: "bootstrap-5",
+            width: "100%",
+            allowClear: false,
+            minimumResultsForSearch: 6,
+            language: {
+              noResults: function () {
+                return "No se encontraron resultados";
+              },
+              searching: function () {
+                return "Buscando...";
+              }
+            }
+          });
+        }
+      );
+    }
+
+
+    function mostrarCarga() {
+      cargando.classList.add("visible");
+
+      cargando.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+      if (estadoActualizacion) {
+        estadoActualizacion.classList.add(
+          "actualizando"
+        );
+
+        estadoActualizacion.innerHTML = (
+          '<span class="spinner-border '
+          + 'spinner-border-sm"></span>'
+          + '<span>Actualizando datos...</span>'
+        );
+      }
+    }
+
+
+    function ocultarCarga() {
+      cargando.classList.remove("visible");
+
+      cargando.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+      if (estadoActualizacion) {
+        estadoActualizacion.classList.remove(
+          "actualizando"
+        );
+
+        estadoActualizacion.innerHTML = (
+          '<i class="fa-solid fa-circle-check"></i>'
+          + '<span>Datos actualizados</span>'
+        );
+      }
+    }
+
+
+    function mostrarError(mensaje) {
+      alertaMensaje.textContent = (
+        mensaje
+        || "Ocurrió un error inesperado."
+      );
+
+      alerta.classList.add("visible");
+    }
+
+
+    function ocultarError() {
+      alerta.classList.remove("visible");
+      alertaMensaje.textContent = "";
+    }
+
+
+    function actualizarTexto(
+      id,
+      valor
+    ) {
+      const elemento = document.getElementById(id);
+
+      if (elemento) {
+        elemento.textContent = valor;
+      }
+    }
+
+
+    function destruirGrafico(nombre) {
+      if (graficos[nombre]) {
+        graficos[nombre].destroy();
+        graficos[nombre] = null;
+      }
+    }
+
+
+    function alternarSinDatos(
+      canvasId,
+      mensajeId,
+      tieneDatos
+    ) {
+      const canvas = document.getElementById(
+        canvasId
+      );
+
+      const mensaje = document.getElementById(
+        mensajeId
+      );
+
+      canvas.parentElement.style.display = (
+        tieneDatos
+        ? "block"
+        : "none"
+      );
+
+      mensaje.classList.toggle(
+        "visible",
+        !tieneDatos
+      );
+    }
+
+
+    function obtenerParametros() {
+      const parametros = new URLSearchParams();
+
+      if (
+        filtroEdicion
+        && filtroEdicion.value
+      ) {
+        parametros.set(
+          "edicion",
+          filtroEdicion.value
+        );
+      }
+
+      if (
+        filtroInstitucion
+        && filtroInstitucion.value
+      ) {
+        parametros.set(
+          "institucion",
+          filtroInstitucion.value
+        );
+      }
+
+      if (
+        filtroSede
+        && filtroSede.value
+      ) {
+        parametros.set(
+          "sede",
+          filtroSede.value
+        );
+      }
+
+      return parametros;
+    }
+
+
+    function actualizarIndicadores(datos) {
+      const indicadores = datos.indicadores || {};
+
+      actualizarTexto(
+        "indicadorInscritos",
+        numeroSeguro(
+          indicadores.inscritos
+        ).toLocaleString("es-NI")
+      );
+
+      actualizarTexto(
+        "indicadorParticipantes",
+        numeroSeguro(
+          indicadores.participantes
+        ).toLocaleString("es-NI")
+      );
+
+      actualizarTexto(
+        "indicadorMentores",
+        numeroSeguro(
+          indicadores.mentores
+        ).toLocaleString("es-NI")
+      );
+
+      actualizarTexto(
+        "indicadorCoordinadoresSede",
+        numeroSeguro(
+          indicadores.coordinadores_sede
+        ).toLocaleString("es-NI")
+      );
+
+      actualizarTexto(
+        "indicadorJurados",
+        numeroSeguro(
+          indicadores.jurados
+        ).toLocaleString("es-NI")
+      );
+
+      actualizarTexto(
+        "indicadorJuradosNacionales",
+        numeroSeguro(
+          indicadores.jurados_nacionales
+        ).toLocaleString("es-NI")
+      );
+
+      actualizarTexto(
+        "indicadorOrganizadoresNacionales",
+        numeroSeguro(
+          indicadores.organizadores_nacionales
+        ).toLocaleString("es-NI")
+      );
+
+      actualizarTexto(
+        "indicadorVicecoordinadoresSede",
+        numeroSeguro(
+          indicadores.vicecoordinadores_sede
+        ).toLocaleString("es-NI")
+      );
+
+      actualizarTexto(
+        "indicadorEquiposAbiertos",
+        numeroSeguro(
+          indicadores.equipos_abiertos
+        ).toLocaleString("es-NI")
+      );
+
+      actualizarTexto(
+        "resumenEquiposConformados",
+        numeroSeguro(
+          indicadores.equipos_conformados
+        ).toLocaleString("es-NI")
+      );
+
+      actualizarTexto(
+        "indicadorPorcentajeConformacion",
+        numeroSeguro(
+          indicadores.porcentaje_conformacion
+        ).toLocaleString(
+          "es-NI",
+          {
+            minimumFractionDigits: 1,
+            maximumFractionDigits: 1
+          }
+        ) + " %"
+      );
+    }
+
+
+    function crearGraficoCircular(
+      nombre,
+      canvasId,
+      mensajeId,
+      registros
+    ) {
+      destruirGrafico(nombre);
+
+      const lista = Array.isArray(registros)
+        ? registros
+        : [];
+
+      const etiquetas = lista.map(
+        item => item.nombre
+      );
+
+      const valores = lista.map(
+        item => numeroSeguro(item.total)
+      );
+
+      const tieneDatos = valores.some(
+        valor => valor > 0
+      );
+
+      alternarSinDatos(
+        canvasId,
+        mensajeId,
+        tieneDatos
+      );
+
+      if (!tieneDatos) {
+        return;
+      }
+
+      graficos[nombre] = new Chart(
+        document
+          .getElementById(canvasId)
+          .getContext("2d"),
+        {
+          type: "doughnut",
+          data: {
+            labels: etiquetas,
+            datasets: [
+              {
+                data: valores,
+                borderWidth: 2
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: "58%",
+            plugins: {
+              legend: {
+                position: "bottom",
+                labels: {
+                  usePointStyle: true,
+                  padding: 18
+                }
+              },
+              datalabels: {
+                display: function (context) {
+                  return numeroSeguro(
+                    context.dataset.data[
+                      context.dataIndex
+                    ]
+                  ) > 0;
+                },
+                color: "#ffffff",
+                font: {
+                  weight: "bold"
+                },
+                formatter: function (valor) {
+                  return numeroSeguro(
+                    valor
+                  ).toLocaleString("es-NI");
+                }
+              }
+            }
+          }
+        }
+      );
+    }
+
+    function dividirEtiqueta(
+        texto,
+        maximoCaracteres = 28,
+        maximoLineas = 3
+        ) {
+        const contenido = String(
+            texto || ""
+        ).trim();
+
+        if (!contenido) {
+            return [""];
+        }
+
+        const palabras = contenido.split(/\s+/);
+        const lineas = [];
+        let lineaActual = "";
+
+        palabras.forEach(
+            function (palabra) {
+            const lineaPropuesta = (
+                lineaActual
+                ? lineaActual + " " + palabra
+                : palabra
+            );
+
+            if (
+                lineaPropuesta.length <= maximoCaracteres
+            ) {
+                lineaActual = lineaPropuesta;
+                return;
+            }
+
+            if (lineaActual) {
+                lineas.push(
+                lineaActual
+                );
+            }
+
+            lineaActual = palabra;
+            }
+        );
+
+        if (lineaActual) {
+            lineas.push(
+            lineaActual
+            );
+        }
+
+        if (
+            lineas.length > maximoLineas
+        ) {
+            const lineasVisibles = lineas.slice(
+            0,
+            maximoLineas
+            );
+
+            const ultimaPosicion = (
+            lineasVisibles.length - 1
+            );
+
+            let ultimaLinea = lineasVisibles[
+            ultimaPosicion
+            ];
+
+            if (
+            ultimaLinea.length
+            > maximoCaracteres - 3
+            ) {
+            ultimaLinea = ultimaLinea.slice(
+                0,
+                maximoCaracteres - 3
+            );
+            }
+
+            lineasVisibles[
+            ultimaPosicion
+            ] = ultimaLinea + "...";
+
+            return lineasVisibles;
+        }
+
+        return lineas;
+    }
+
+
+    function crearGraficoBarras(
+        nombre,
+        canvasId,
+        mensajeId,
+        registros
+        ) {
+        destruirGrafico(
+            nombre
+        );
+
+        const lista = Array.isArray(
+            registros
+        )
+            ? registros
+            : [];
+
+        const etiquetasOriginales = lista.map(
+            function (item) {
+            return String(
+                item.nombre || ""
+            );
+            }
+        );
+
+        const etiquetas = etiquetasOriginales.map(
+            function (etiqueta) {
+            return dividirEtiqueta(
+                etiqueta,
+                28,
+                3
+            );
+            }
+        );
+
+        const valores = lista.map(
+            function (item) {
+            return numeroSeguro(
+                item.total
+            );
+            }
+        );
+
+        const tieneDatos = valores.some(
+            function (valor) {
+            return valor > 0;
+            }
+        );
+
+        alternarSinDatos(
+            canvasId,
+            mensajeId,
+            tieneDatos
+        );
+
+        if (!tieneDatos) {
+            return;
+        }
+
+        const canvas = document.getElementById(
+            canvasId
+        );
+
+        const contenedor = canvas.parentElement;
+
+        const alturaCalculada = Math.max(
+            360,
+            lista.length * 58
+        );
+
+        contenedor.style.height = (
+            alturaCalculada + "px"
+        );
+
+        graficos[nombre] = new Chart(
+            canvas.getContext("2d"),
+            {
+            type: "bar",
+
+            data: {
+                labels: etiquetas,
+
+                datasets: [
+                {
+                    label: "Cantidad",
+                    data: valores,
+                    borderRadius: 6,
+                    maxBarThickness: 42
+                }
+                ]
+            },
+
+            options: {
+                indexAxis: "y",
+                responsive: true,
+                maintainAspectRatio: false,
+
+                layout: {
+                padding: {
+                    top: 8,
+                    right: 48,
+                    bottom: 8,
+                    left: 4
+                }
+                },
+
+                scales: {
+                x: {
+                    beginAtZero: true,
+                    grace: "12%",
+
+                    ticks: {
+                    precision: 0
+                    }
+                },
+
+                y: {
+                    grid: {
+                    display: false
+                    },
+
+                    ticks: {
+                    autoSkip: false,
+                    font: {
+                        size: 11
+                    }
+                    }
+                }
+                },
+
+                plugins: {
+                legend: {
+                    display: false
+                },
+
+                tooltip: {
+                    callbacks: {
+                    title: function (elementos) {
+                        if (
+                        !elementos
+                        || elementos.length === 0
+                        ) {
+                        return "";
+                        }
+
+                        const indice = elementos[
+                        0
+                        ].dataIndex;
+
+                        return etiquetasOriginales[
+                        indice
+                        ] || "";
+                    },
+
+                    label: function (context) {
+                        return (
+                        "Cantidad: "
+                        + numeroSeguro(
+                            context.parsed.x
+                            ).toLocaleString(
+                            "es-NI"
+                            )
+                        );
+                    }
+                    }
+                },
+
+                datalabels: {
+                    display: function (context) {
+                    return numeroSeguro(
+                        context.dataset.data[
+                        context.dataIndex
+                        ]
+                    ) > 0;
+                    },
+
+                    anchor: "end",
+                    align: "end",
+                    clamp: true,
+                    clip: false,
+                    color: "#495057",
+
+                    font: {
+                    weight: "bold",
+                    size: 11
+                    },
+
+                    formatter: function (valor) {
+                    return numeroSeguro(
+                        valor
+                    ).toLocaleString(
+                        "es-NI"
+                    );
+                    }
+                }
+                }
+            }
+            }
+        );
+        }
+
+
+    function obtenerConfiguracionTabla(tipo) {
+      const configuraciones = {
+        sedes: {
+          cuerpo: "tablaSedesCuerpo",
+          info: "infoSedes",
+          paginacion: "paginacionSedes",
+          columnas: 4
+        },
+        departamentos: {
+          cuerpo: "tablaDepartamentosCuerpo",
+          info: "infoDepartamentos",
+          paginacion: "paginacionDepartamentos",
+          columnas: 3
+        },
+        municipios: {
+          cuerpo: "tablaMunicipiosCuerpo",
+          info: "infoMunicipios",
+          paginacion: "paginacionMunicipios",
+          columnas: 4
+        }
+      };
+
+      return configuraciones[tipo];
+    }
+
+
+    function crearBotonPagina(
+      contenido,
+      pagina,
+      activo,
+      deshabilitado,
+      callback
+    ) {
+      const item = document.createElement("li");
+
+      item.className = "page-item";
+
+      if (activo) {
+        item.classList.add("active");
+      }
+
+      if (deshabilitado) {
+        item.classList.add("disabled");
+      }
+
+      const boton = document.createElement("button");
+
+      boton.type = "button";
+      boton.className = "page-link";
+      boton.innerHTML = contenido;
+
+      boton.addEventListener(
+        "click",
+        function () {
+          if (
+            !activo
+            && !deshabilitado
+          ) {
+            callback(pagina);
+          }
+        }
+      );
+
+      item.appendChild(boton);
+
+      return item;
+    }
+
+
+    function construirFilaTabla(
+      tipo,
+      registro,
+      posicion
+    ) {
+      if (tipo === "sedes") {
+        return (
+          '<tr>'
+          + '<td><span class="dashboard-tabla-posicion">'
+          + posicion
+          + '</span></td>'
+          + '<td>'
+          + '<div class="fw-semibold">'
+          + escaparHtml(
+              registro.institucion
+              || "Sin institución"
+            )
+          + '</div>'
+          + '<div class="small text-body-secondary">'
+          + escaparHtml(
+              registro.institucion_nombre
+              || ""
+            )
+          + '</div>'
+          + '</td>'
+          + '<td>'
+          + '<div class="fw-semibold">'
+          + escaparHtml(
+              registro.nombre
+              || "Sin sede"
+            )
+          + '</div>'
+          + (
+              registro.siglas
+              ? (
+                  '<div class="small text-body-secondary">'
+                  + escaparHtml(registro.siglas)
+                  + '</div>'
+                )
+              : ""
+            )
+          + '</td>'
+          + '<td class="text-end">'
+          + '<span class="dashboard-tabla-cantidad">'
+          + numeroSeguro(
+              registro.total
+            ).toLocaleString("es-NI")
+          + '</span>'
+          + '</td>'
+          + '</tr>'
+        );
+      }
+
+      if (tipo === "municipios") {
+        return (
+          '<tr>'
+          + '<td><span class="dashboard-tabla-posicion">'
+          + posicion
+          + '</span></td>'
+          + '<td>'
+          + escaparHtml(
+              registro.departamento
+              || "Sin departamento"
+            )
+          + '</td>'
+          + '<td class="fw-semibold">'
+          + escaparHtml(
+              registro.nombre
+              || "Sin municipio"
+            )
+          + '</td>'
+          + '<td class="text-end">'
+          + '<span class="dashboard-tabla-cantidad">'
+          + numeroSeguro(
+              registro.total
+            ).toLocaleString("es-NI")
+          + '</span>'
+          + '</td>'
+          + '</tr>'
+        );
+      }
+
+      return (
+        '<tr>'
+        + '<td><span class="dashboard-tabla-posicion">'
+        + posicion
+        + '</span></td>'
+        + '<td class="fw-semibold">'
+        + escaparHtml(
+            registro.nombre
+            || "Sin departamento"
+          )
+        + '</td>'
+        + '<td class="text-end">'
+        + '<span class="dashboard-tabla-cantidad">'
+        + numeroSeguro(
+            registro.total
+          ).toLocaleString("es-NI")
+        + '</span>'
+        + '</td>'
+        + '</tr>'
+      );
+    }
+
+
+    function renderizarTabla(tipo) {
+      const tabla = tablas[tipo];
+      const config = obtenerConfiguracionTabla(tipo);
+
+      const cuerpo = document.getElementById(
+        config.cuerpo
+      );
+
+      const info = document.getElementById(
+        config.info
+      );
+
+      const paginacion = document.getElementById(
+        config.paginacion
+      );
+
+      const total = tabla.filtrados.length;
+
+      const totalPaginas = Math.max(
+        Math.ceil(total / tabla.porPagina),
+        1
+      );
+
+      tabla.pagina = Math.min(
+        tabla.pagina,
+        totalPaginas
+      );
+
+      const inicio = (
+        tabla.pagina - 1
+      ) * tabla.porPagina;
+
+      const fin = Math.min(
+        inicio + tabla.porPagina,
+        total
+      );
+
+      const registros = tabla.filtrados.slice(
+        inicio,
+        fin
+      );
+
+      cuerpo.innerHTML = "";
+
+      if (!registros.length) {
+        cuerpo.innerHTML = (
+          '<tr>'
+          + '<td colspan="'
+          + config.columnas
+          + '" class="dashboard-tabla-vacia">'
+          + '<i class="fa-solid fa-inbox '
+          + 'fa-2x text-body-secondary mb-3 d-block"></i>'
+          + '<div class="fw-semibold">'
+          + 'No hay registros para mostrar'
+          + '</div>'
+          + '</td>'
+          + '</tr>'
+        );
+
+        info.textContent = "Mostrando 0 registros";
+        paginacion.innerHTML = "";
+
+        return;
+      }
+
+      registros.forEach(
+        function (
+          registro,
+          indice
+        ) {
+          cuerpo.insertAdjacentHTML(
+            "beforeend",
+            construirFilaTabla(
+              tipo,
+              registro,
+              inicio + indice + 1
+            )
+          );
+        }
+      );
+
+      info.textContent = (
+        "Mostrando "
+        + (inicio + 1)
+        + " a "
+        + fin
+        + " de "
+        + total
+        + " registros"
+      );
+
+      paginacion.innerHTML = "";
+
+      paginacion.appendChild(
+        crearBotonPagina(
+          '<i class="fa-solid fa-chevron-left"></i>',
+          tabla.pagina - 1,
+          false,
+          tabla.pagina === 1,
+          function (pagina) {
+            tabla.pagina = pagina;
+            renderizarTabla(tipo);
+          }
+        )
+      );
+
+      let paginaInicio = Math.max(
+        tabla.pagina - 2,
+        1
+      );
+
+      let paginaFin = Math.min(
+        paginaInicio + 4,
+        totalPaginas
+      );
+
+      paginaInicio = Math.max(
+        paginaFin - 4,
+        1
+      );
+
+      for (
+        let pagina = paginaInicio;
+        pagina <= paginaFin;
+        pagina += 1
+      ) {
+        paginacion.appendChild(
+          crearBotonPagina(
+            pagina,
+            pagina,
+            pagina === tabla.pagina,
+            false,
+            function (paginaSeleccionada) {
+              tabla.pagina = paginaSeleccionada;
+              renderizarTabla(tipo);
+            }
+          )
+        );
+      }
+
+      paginacion.appendChild(
+        crearBotonPagina(
+          '<i class="fa-solid fa-chevron-right"></i>',
+          tabla.pagina + 1,
+          false,
+          tabla.pagina === totalPaginas,
+          function (pagina) {
+            tabla.pagina = pagina;
+            renderizarTabla(tipo);
+          }
+        )
+      );
+    }
+
+
+    function cargarDatosTabla(
+      tipo,
+      registros
+    ) {
+      tablas[tipo].datos = Array.isArray(registros)
+        ? registros
+        : [];
+
+      tablas[tipo].filtrados = [
+        ...tablas[tipo].datos
+      ];
+
+      tablas[tipo].pagina = 1;
+
+      renderizarTabla(tipo);
+    }
+
+
+    function filtrarTabla(
+      tipo,
+      termino
+    ) {
+      const texto = String(
+        termino || ""
+      )
+        .trim()
+        .toLocaleLowerCase("es");
+
+      tablas[tipo].filtrados = tablas[tipo].datos.filter(
+        function (registro) {
+          const contenido = [
+            registro.nombre,
+            registro.siglas,
+            registro.institucion,
+            registro.institucion_nombre,
+            registro.departamento
+          ]
+            .filter(Boolean)
+            .join(" ")
+            .toLocaleLowerCase("es");
+
+          return contenido.includes(texto);
+        }
+      );
+
+      tablas[tipo].pagina = 1;
+
+      renderizarTabla(tipo);
+    }
+
+
+    function actualizarContenido(datos) {
+      const graficosDatos = datos.graficos || {};
+      const tablasDatos = datos.tablas || {};
+
+      crearGraficoCircular(
+        "sexos",
+        "graficoSexos",
+        "sinDatosSexos",
+        graficosDatos.sexos
+      );
+
+      crearGraficoCircular(
+        "etnias",
+        "graficoEtnias",
+        "sinDatosEtnias",
+        graficosDatos.etnias
+      );
+
+      crearGraficoBarras(
+        "retos",
+        "graficoRetos",
+        "sinDatosRetos",
+        graficosDatos.retos
+      );
+
+      crearGraficoBarras(
+        "categorias",
+        "graficoCategorias",
+        "sinDatosCategorias",
+        graficosDatos.categorias
+      );
+
+      cargarDatosTabla(
+        "sedes",
+        tablasDatos.sedes
+      );
+
+      cargarDatosTabla(
+        "departamentos",
+        tablasDatos.departamentos
+      );
+
+      cargarDatosTabla(
+        "municipios",
+        tablasDatos.municipios
+      );
+    }
+
+
+    async function cargarDashboard() {
+      ocultarError();
+
+      if (solicitudDashboard) {
+        solicitudDashboard.abort();
+      }
+
+      const controlador = new AbortController();
+
+      solicitudDashboard = controlador;
+
+      mostrarCarga();
+
+      try {
+        const respuesta = await fetch(
+          urlDatos
+          + "?"
+          + obtenerParametros().toString(),
+          {
+            headers: {
+              "X-Requested-With": "XMLHttpRequest"
+            },
+            signal: controlador.signal
+          }
+        );
+
+        const datos = await respuesta.json();
+
+        if (
+          !respuesta.ok
+          || !datos.ok
+        ) {
+          throw new Error(
+            datos.mensaje
+            || "No fue posible consultar las estadísticas."
+          );
+        }
+
+        actualizarIndicadores(datos);
+        actualizarContenido(datos);
+
+      } catch (error) {
+        if (error.name !== "AbortError") {
+          mostrarError(
+            error.message
+            || "No fue posible cargar el dashboard."
+          );
+        }
+
+      } finally {
+        if (
+          solicitudDashboard === controlador
+        ) {
+          solicitudDashboard = null;
+          ocultarCarga();
+        }
+      }
+    }
+
+
+    async function cargarSedes(
+      valorSeleccionado = ""
+    ) {
+      if (
+        !filtroInstitucion
+        || !filtroSede
+        || filtroSede.tagName !== "SELECT"
+      ) {
+        return;
+      }
+
+      const institucion = (
+        filtroInstitucion.value
+        || ""
+      ).trim();
+
+      if (solicitudSedes) {
+        solicitudSedes.abort();
+      }
+
+      const controlador = new AbortController();
+
+      solicitudSedes = controlador;
+
+      filtroSede.innerHTML = (
+        '<option value="">'
+        + 'Todas las sedes autorizadas'
+        + '</option>'
+      );
+
+      filtroSede.disabled = true;
+
+      if ($) {
+        $(filtroSede)
+          .prop("disabled", true)
+          .val("")
+          .trigger("change.select2");
+      }
+
+      if (!institucion) {
+        solicitudSedes = null;
+        return;
+      }
+
+      try {
+        const parametros = new URLSearchParams({
+          institucion: institucion
+        });
+
+        const respuesta = await fetch(
+          urlSedes
+          + "?"
+          + parametros.toString(),
+          {
+            headers: {
+              "X-Requested-With": "XMLHttpRequest"
+            },
+            signal: controlador.signal
+          }
+        );
+
+        const datos = await respuesta.json();
+
+        if (
+          !respuesta.ok
+          || !datos.ok
+        ) {
+          throw new Error(
+            datos.mensaje
+            || "No fue posible consultar las sedes."
+          );
+        }
+
+        const resultados = Array.isArray(
+          datos.resultados
+        )
+          ? datos.resultados
+          : [];
+
+        resultados.forEach(
+          function (sede) {
+            const opcion = document.createElement(
+              "option"
+            );
+
+            opcion.value = sede.id;
+            opcion.textContent = sede.text;
+
+            filtroSede.appendChild(opcion);
+          }
+        );
+
+        const existe = resultados.some(
+          function (sede) {
+            return (
+              String(sede.id)
+              === String(valorSeleccionado)
+            );
+          }
+        );
+
+        const valorFinal = existe
+          ? valorSeleccionado
+          : "";
+
+        filtroSede.disabled = false;
+        filtroSede.value = valorFinal;
+
+        if ($) {
+          $(filtroSede)
+            .prop("disabled", false)
+            .val(valorFinal)
+            .trigger("change.select2");
+        }
+
+      } catch (error) {
+        if (error.name !== "AbortError") {
+          mostrarError(
+            error.message
+            || "No fue posible cargar las sedes."
+          );
+        }
+
+      } finally {
+        if (
+          solicitudSedes === controlador
+        ) {
+          solicitudSedes = null;
+        }
+      }
+    }
+
+
+    function registrarEventos() {
+      if (formulario) {
+        formulario.addEventListener(
+          "submit",
+          function (evento) {
+            evento.preventDefault();
+          }
+        );
+      }
+
+      if (
+        filtroInstitucion
+        && filtroInstitucion.tagName === "SELECT"
+      ) {
+        if ($) {
+          $(filtroInstitucion)
+            .off("change.dashboard")
+            .on(
+              "change.dashboard",
+              async function () {
+                await cargarSedes("");
+                await cargarDashboard();
+              }
+            );
+        }
+      }
+
+      if (
+        filtroSede
+        && filtroSede.tagName === "SELECT"
+        && $
+      ) {
+        $(filtroSede)
+          .off("change.dashboard")
+          .on(
+            "change.dashboard",
+            cargarDashboard
+          );
+      }
+
+      if (
+        filtroEdicion
+        && filtroEdicion.tagName === "SELECT"
+        && $
+      ) {
+        $(filtroEdicion)
+          .off("change.dashboard")
+          .on(
+            "change.dashboard",
+            cargarDashboard
+          );
+      }
+
+      const buscadores = {
+        buscarSedes: "sedes",
+        buscarDepartamentos: "departamentos",
+        buscarMunicipios: "municipios"
+      };
+
+      Object.entries(buscadores).forEach(
+        function (
+          [id, tipo]
+        ) {
+          const campo = document.getElementById(id);
+
+          if (campo) {
+            campo.addEventListener(
+              "input",
+              function () {
+                filtrarTabla(
+                  tipo,
+                  this.value
+                );
+              }
+            );
+          }
+        }
+      );
+    }
+
+
+    async function iniciarDashboard() {
+      inicializarSelect2Dashboard();
+      registrarEventos();
+
+      const sedeInicial = (
+        filtroSede
+        && filtroSede.tagName === "SELECT"
+        ? (
+            filtroSede.dataset.valorInicial
+            || filtroSede.value
+            || ""
+          )
+        : ""
+      );
+
+      if (
+        filtroInstitucion
+        && filtroInstitucion.value
+        && filtroSede
+        && filtroSede.tagName === "SELECT"
+      ) {
+        await cargarSedes(sedeInicial);
+
+      } else if (
+        filtroSede
+        && filtroSede.tagName === "SELECT"
+      ) {
+        filtroSede.disabled = true;
+
+        if ($) {
+          $(filtroSede)
+            .prop("disabled", true)
+            .trigger("change.select2");
+        }
+      }
+
+      await cargarDashboard();
+    }
+
+
+    iniciarDashboard();
+  }
+);
+</script>
+</body>

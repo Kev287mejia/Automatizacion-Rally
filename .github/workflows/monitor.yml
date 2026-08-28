@@ -1,0 +1,101 @@
+name: Monitor Rally
+
+on:
+  schedule:
+    # Se ejecuta cada 15 minutos (Nota: GitHub no garantiza precisión al minuto exacto, puede haber retrasos de encolamiento)
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+    # Permite ejecución manual desde la pestaña Actions
+
+# Asegura que solo una instancia de este workflow pueda correr a la vez para evitar colisiones
+concurrency:
+  group: monitor-rally
+  cancel-in-progress: false
+
+permissions:
+  # Requerido estrictamente para poder hacer "git push" hacia la rama monitor-state
+  contents: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository (main)
+        uses: actions/checkout@v4
+        with:
+          # Para asegurarnos de tener la referencia completa, hacemos fetch de todo o de todas las ramas
+          fetch-depth: 0
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          # Python 3.11 es maduro, estable, y ampliamente soportado en Runners efímeros
+          python-version: '3.11'
+          cache: 'pip' # Acelera la instalación cacheados los wheels
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Retrieve snapshot from monitor-state branch
+        run: |
+          mkdir -p data
+          # Intentamos extraer el archivo data/snapshot.json de la rama monitor-state (remota)
+          if git ls-remote --exit-code --heads origin monitor-state; then
+            echo "La rama monitor-state existe. Descargando el snapshot anterior..."
+            git fetch origin monitor-state
+            # Extrae solo el snapshot de esa rama sin hacer checkout completo
+            git checkout origin/monitor-state -- data/snapshot.json || echo "No se encontro data/snapshot.json en la rama."
+          else
+            echo "La rama monitor-state NO existe todavía. Ejecutando en modo Baseline."
+          fi
+          
+          # Depuración mínima (sin exponer datos sensibles)
+          ls -la data/ || true
+
+      - name: Run Monitor Rally
+        env:
+          RALLY_USERNAME: ${{ secrets.RALLY_USERNAME }}
+          RALLY_PASSWORD: ${{ secrets.RALLY_PASSWORD }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
+        run: python -m app.main
+        # NOTA SOBRE FALLAS: Si este paso falla (por ejemplo, porque SMTP fallo y main.py retornó exit 1), 
+        # el workflow se detendrá aquí. El paso siguiente no se ejecutará y el snapshot nuevo no se guardará, 
+        # garantizando un reintento en el próximo ciclo.
+
+      - name: Persist new snapshot to monitor-state branch
+        # Solo se ejecuta si el script en Python tuvo éxito (terminó con exit 0)
+        if: success()
+        run: |
+          # Configuramos el bot de GitHub Actions para poder hacer commits
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Movemos el snapshot a un lugar seguro temporalmente
+          cp data/snapshot.json /tmp/snapshot.json
+          
+          # Si la rama monitor-state existe en remoto, cambiamos a ella
+          if git ls-remote --exit-code --heads origin monitor-state; then
+            git checkout -B monitor-state origin/monitor-state
+          else
+            # Si no existe, creamos una rama huérfana vacía (sin historial)
+            git checkout --orphan monitor-state
+            git rm -rf .
+          fi
+          
+          # Restauramos el snapshot modificado al arbol
+          mkdir -p data
+          cp /tmp/snapshot.json data/snapshot.json
+          
+          # Hacemos commit del snapshot
+          git add data/snapshot.json
+          
+          # Si no hay cambios en el archivo, commit -m fallará, lo ignoramos amigablemente
+          git commit -m "Update monitor state (snapshot)" || echo "No hay cambios en el snapshot para hacer commit."
+          
+          # Hacemos push a la rama monitor-state usando push normal sin reescribir la historia.
+          git push origin HEAD:monitor-state
