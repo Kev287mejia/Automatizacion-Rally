@@ -1,6 +1,9 @@
 name: Monitor Rally
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     # Se ejecuta cada 15 minutos (Nota: GitHub no garantiza precisión al minuto exacto, puede haber retrasos de encolamiento)
     - cron: '*/15 * * * *'
