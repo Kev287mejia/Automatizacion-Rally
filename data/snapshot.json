@@ -1,0 +1,15 @@
+{
+  "edition_uuid": "4f13f9a9-8bfc-44a3-99ac-a578e9908c9b",
+  "sede": "BICU, Puerto Cabezas",
+  "timestamp": "2026-08-28T15:22:21.764662+00:00",
+  "indicadores": {
+    "inscritos": 0,
+    "participantes": 0,
+    "mentores": 0,
+    "jurados": 0,
+    "equipos": 0,
+    "equipos_abiertos": 0,
+    "equipos_conformados": 0
+  },
+  "sede_data": null
+}
